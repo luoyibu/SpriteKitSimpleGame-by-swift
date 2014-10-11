@@ -11,12 +11,19 @@ import SpriteKit
 
 class ResultScene: SKScene {
    
+    func changeToGameScene() {
+        let ms = GameScene.sceneWithSize(self.size)
+        let reveal = SKTransition.revealWithDirection(SKTransitionDirection.Down, duration: 1.0)
+        self.scene?.view?.presentScene(ms, transition: reveal)
+    }
+    
     override func touchesBegan(touches: NSSet, withEvent event: UIEvent) {
         for touch in touches {
             let touchLocation = touch.locationInNode(self)
-            let node = self.nodesAtPoint(touchLocation)
-            
-            
+            let node = self.nodeAtPoint(touchLocation) as SKNode
+            if node.name == "retryLabel" {
+                self.changeToGameScene()
+            }
         }
     }
     

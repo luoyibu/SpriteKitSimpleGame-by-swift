@@ -138,7 +138,7 @@ class GameScene: SKScene {
                     projectile.removeFromParent()
                     
                     self.monstersDestroyed++
-                    if self.monstersDestroyed >= 30 {
+                    if self.monstersDestroyed >= 05 {
                         //show win scene
                         self.changeToResultSceneWithWon(true)
                     }
